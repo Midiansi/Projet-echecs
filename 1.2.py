@@ -11,7 +11,7 @@ echiquier = [[0] * 8 for loop in range (8)]
 jeu = "echecs"
 
 #case_selectionne = tab[i][j]         #Case à echanger avec si vide
-#case_a_echanger = {tab[i][j], piece} #Tuple qui garde l'information de la case cliquée en premier
+#case_a_echanger = (tab[i][j], piece) #Tuple qui garde l'information de la case cliquée en premier
 
 def remplir_chiquier_initiallement(tab, jeu):
     """Prends un tableau vide et met les pieces conforme le jeu choisi"""
