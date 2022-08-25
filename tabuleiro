@@ -1,0 +1,30 @@
+# ECHEC
+
+import pyxel
+
+pyxel.init(128, 128, title="Échec")
+
+
+tab = [[0] * 8 for loop in range (8)]
+
+
+def update():
+    a = 1
+
+def draw():
+    for i in range(8):
+        for j in range(8):
+            if i % 2 == 0:
+                if j % 2 == 0:
+                    pyxel.rect(i * 16, j * 16, 16, 16, 7)
+                else:
+                    pyxel.rect(i * 16, j * 16, 16, 16, 4)
+            else:
+                if j % 2 == 0:
+                    pyxel.rect(i * 16, j * 16, 16, 16, 4)
+                else:
+                    pyxel.rect(i * 16, j * 16, 16, 16, 7)
+            
+
+            
+pyxel.run(update, draw)
