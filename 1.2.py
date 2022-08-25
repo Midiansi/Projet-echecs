@@ -18,23 +18,23 @@ def remplir_chiquier_initiallement(tab, jeu):
     
     if jeu == "echecs":
         for i in range(8):
-            tab[i][1] = 1 #ligne de pions bleu
-            tab[i][6] = 1 #ligne de pions rouges
+            tab[1][i] = 1 #ligne de pions bleu
+            tab[6][i] = 1 #ligne de pions rouges
             
-        tab[1][0], tab[6][0] = 2, 2 #chevaux bleu
-        tab[1][7], tab[6][7] = 2, 2 #chevaux rouge
+        tab[0][1], tab[0][6] = 2, 2 #chevaux bleu
+        tab[7][1], tab[7][6] = 2, 2 #chevaux rouge
         
-        tab[0][0], tab[7][0] = 3, 3 #tours bleu
-        tab[0][7], tab[7][7] = 3, 3 #tours rouge
+        tab[0][0], tab[0][7] = 3, 3 #tours bleu
+        tab[7][0], tab[7][7] = 3, 3 #tours rouge
         
-        tab[3][0] = 4 #reine bleu
-        tab[3][7] = 4 #reine rouge
+        tab[0][3] = 4 #reine bleu
+        tab[7][3] = 4 #reine rouge
         
-        tab[2][0], tab[5][0] = 5, 5 #fou bleu
-        tab[2][7], tab[5][7] = 5, 5 #fou rouge
+        tab[0][2], tab[0][5] = 5, 5 #fou bleu
+        tab[7][2], tab[7][5] = 5, 5 #fou rouge
         
-        tab[4][0] = 6 #roi bleu
-        tab[4][7] = 6 #roi rouge
+        tab[0][4] = 6 #roi bleu
+        tab[7][4] = 6 #roi rouge
             
 #    if jeu == "dames":
             
@@ -66,7 +66,7 @@ def dessiner_piece(tab):
     
     for i in range(8):
         for j in range(8):
-            case = tab[i][j]
+            case = tab[j][i]
             if case != 0: #Case non vide
                 
                 if case == 1: #Dessine un pion
@@ -90,6 +90,5 @@ def draw():
     echiquier_vide()
     
     dessiner_piece(echiquier)
-    
             
 pyxel.run(update, draw)
