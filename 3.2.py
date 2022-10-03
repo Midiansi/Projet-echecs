@@ -183,7 +183,7 @@ def valide(clic: tuple, tab: list) -> list:
                 if encadre(gauche) and (echiquier[gauche[0]][gauche[1]] != 0):
                     tab.append((gauche[0],gauche[1]))
                 
-                #regle en passant pour la droite
+                #regle en passant pour la gauche
                 passant_g = (clic[0], clic[1] - 1)
                 if encadre(passant_g) and encadre(gauche):
                     piece_passant = echiquier[passant_g[0]][passant_g[1]]
