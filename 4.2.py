@@ -204,12 +204,12 @@ def valide(clic: tuple, tab: list) -> list:
                         en_passant += [gauche, passant_g]
 
     #coordonnes valides pour un cheval
-    if piece == "2":
+    elif piece == "2":
         tab =[(clic[0]-2,clic[1]+1), (clic[0]-2,clic[1]-1),(clic[0]+2,clic[1]+1),
               (clic[0]+2,clic[1]-1),(clic[0]+1,clic[1]+2), (clic[0]+1,clic[1]-2),
               (clic[0]-1,clic[1]+2),(clic[0]-1,clic[1]-2)]
     #coordonnes valides pour une tour
-    if piece == "3":
+    elif piece == "3":
         for i in range(0,8):
             tab.append((clic[0],clic[1]+1+i))
             if not encadre((clic[0],clic[1]+1+i)) or echiquier[clic[0]][clic[1]+1+i] != 0:
@@ -227,7 +227,7 @@ def valide(clic: tuple, tab: list) -> list:
             if not encadre((clic[0]-1-i,clic[1])) or echiquier[clic[0]-1-i][clic[1]] != 0:
                 break
     #coordonnes valides pour un reine
-    if piece == "4":
+    elif piece == "4":
         for i in range(0,8):
             tab.append((clic[0],clic[1]+1+i))
             if not encadre((clic[0],clic[1]+1+i)) or echiquier[clic[0]][clic[1]+1+i] != 0:
@@ -261,7 +261,7 @@ def valide(clic: tuple, tab: list) -> list:
             if not encadre((clic[0]-1-i,clic[1]+1+i)) or echiquier[clic[0]-1-i][clic[1]+1+i] != 0:
                 break
     #coordonnes valides pour un fou
-    if piece == "5":
+    elif piece == "5":
         for i in range(0,8):
             tab.append((clic[0]+1+i,clic[1]+1+i))
             if not encadre((clic[0]+1+i,clic[1]+1+i)) or echiquier[clic[0]+1+i][clic[1]+1+i] != 0:
@@ -279,13 +279,13 @@ def valide(clic: tuple, tab: list) -> list:
             if not encadre((clic[0]-1-i,clic[1]+1+i)) or echiquier[clic[0]-1-i][clic[1]+1+i] != 0:
                 break
     #coordonnes valides pour un roi
-    if piece == "6":
+    elif piece == "6":
         tab = [(clic[0]-1,clic[1]+1), (clic[0]-1,clic[1]-1),(clic[0]+1,clic[1]+1),
               (clic[0]+1,clic[1]-1),(clic[0]+1,clic[1]),
               (clic[0]-1,clic[1]),(clic[0],clic[1]+1),(clic[0],clic[1]-1)]
         
     #coordonnes valides pour une pierre:
-    if piece == "7":
+    elif piece == "7":
         direction = 1 #vers le bas
         if couleur == "r":
             direction = -1 #vers le haut
@@ -345,7 +345,7 @@ def valide(clic: tuple, tab: list) -> list:
             dames_manger += [(bas_droite_manger),(droite)]
         
     #coordonnes valides pour une dame:
-    if piece == "8":
+    elif piece == "8":
         
         for i in range(0,8):
             haut_gauche = (clic[0]-1-i,clic[1]-1-i)
