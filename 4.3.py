@@ -438,7 +438,7 @@ def collision(couleur: str, tab: list) -> list:
 
 def update():
     global case_gauche, tab_case_droite, commencer, compteur_mouv, vainqueur, echiquier, jeu, en_passant,\
-           mouvement_precedent, dames_manger
+           mouvement_precedent, dames_manger, nb_pieceB, nb_pieceR
     
     if commencer == 0: #en attente d'une selection de mode
         remplir_chiquier_initiallement(echiquier, jeu)
@@ -472,8 +472,7 @@ def update():
                             for i in range(0, len(en_passant), 2):
                                 if clic_temp == en_passant[i]:
                                     echiquier[en_passant[i+1][0]][en_passant[i+1][1]] = 0
-                    nb_pieceR = 0
-                    nb_pieceb = 0
+                                    
                     if case[0] == "7" or case[0] == "8": #pour un jeu de dames
                         for i in range(0, len(dames_manger), 2):
                             if clic_temp == dames_manger[i]: #si on choisi une case mangeable
@@ -483,10 +482,13 @@ def update():
                                     nb_pieceR += 1 #Nombre des pieces blue mange
                                     if nb_pieceR == 12:
                                         vainqueur = "Rose"
+                                        commencer = 2
+                                        
                                 if case[0] == "7r" or case[0] == "7r":
                                     nb_pieceB += 1#Nombre des pieces rose mange
                                     if nb_pieceB == 12:
                                         vainqueur = "Bleu"
+                                        commencer = 2
                                 #la piece saute est enleve 
                                     
                     #Si on mange un roi
@@ -563,11 +565,6 @@ def draw():
             pyxel.blt(20, 32, 0, 0, 64, 98, 16, 11) # Rose gagne
         if vainqueur == "Bleu":
             pyxel.blt(20, 32, 0, 0, 80, 98, 16, 11) # Bleu gagne
-        if nb_pieceR == 12:
-            pyxel.blt(20, 32, 0, 0, 64, 98, 16, 11)
-        if nb_pieceB == 12 :
-            pyxel.blt(20, 32, 0, 0, 80, 98, 16, 11)
-            
         pyxel.text(46, 80, f"En {compteur_mouv//2 + 1} rounds", 0)
         pyxel.text(40, 88, "R pour rejouer", 0)
             
