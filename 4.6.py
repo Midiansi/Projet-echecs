@@ -18,6 +18,7 @@ tab_case_droite = [] #Tab avec les coordonees valides pour un clic droite
 en_passant = [] #Tableau pour appliquer la regle en passant
 mouvement_precedent = (0, 0)
 roque = [] #Tableau pour faire le mouvement roque
+#roque va etre sous forme: coordonnees actuelle du roi, ou mettre le roi, coordonnes actuelle d'une tour, ou mettre la tour
 
 #Pour les dames
 dames_manger = [] #Tableau pour pour manger les pieces dans le jeu de dames
