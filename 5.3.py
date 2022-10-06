@@ -641,12 +641,10 @@ def update():
                         if case[0] == "3" and echiquier[roque[i+1][0]][roque[i+1][1]] == roi:
                             echiquier[roque[i+3][0]][roque[i+3][1]] = f"3{case[1]}1"
                             echiquier[clic_temp[0]][clic_temp[1]] = 0
-                            break 
                         #Pour le roi
                         if case[0] == "6" and echiquier[roque[i+3][0]][roque[i+3][1]] == tour:
                             echiquier[roque[i+1][0]][roque[i+1][1]] = f"6{case[1]}1"
                             echiquier[clic_temp[0]][clic_temp[1]] = 0
-                            break 
 
                     #On vide le variables de mouvement
                     case_gauche = ""
