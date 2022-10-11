@@ -678,6 +678,7 @@ def update():
             jeu = "en attente"
             compteur_mouv = 0
             commencer = 0
+            mouvement_precedent = (0, 1)
     
     elif commencer == 3: #promotion, on attends un choix
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
