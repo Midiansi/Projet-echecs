@@ -577,8 +577,8 @@ def update():
         
     elif commencer == 1:
         
+        cheque = []
         if jeu == "echecs":
-            cheque = []
             cheque = cheque_test(cheque)
         
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
