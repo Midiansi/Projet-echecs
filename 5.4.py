@@ -157,7 +157,7 @@ def encadre(case: tuple) -> bool:
 
 def valide(clic: tuple, tab: list) -> list:
     """Renvoie un tableau tab avec des coordonnes valides pour rentrer dans l'échiquier"""
-    global echiquier, en_passant, mouvement_precedent, dames_manger, roque
+    global echiquier, en_passant, mouvement_precedent, dames_manger, roque, cheque
     x = clic[0]
     y = clic[1]
     case = echiquier[x][y]
@@ -260,7 +260,8 @@ def valide(clic: tuple, tab: list) -> list:
            echiquier[clic[0]][clic[1]+1] == 0 and \
            echiquier[clic[0]][clic[1]+2] == 0 and echiquier[clic[0]][clic[1]+3] == 0 and\
            echiquier[roi_droite[0]][roi_droite[1]][0] == "6" and\
-           echiquier[roi_droite[0]][roi_droite[1]][2] == "0":
+           echiquier[roi_droite[0]][roi_droite[1]][2] == "0"\
+           and cheque == []:
             tab.append(roi_droite)
             roque += [roi_droite, (clic[0], clic[1] + 2), clic, (clic[0], clic[1] +3)]
             #Roque prends ou est le roi, ou mettre la tour et ou mettre le roi
@@ -271,7 +272,8 @@ def valide(clic: tuple, tab: list) -> list:
            and echiquier[roi_gauche[0]][roi_gauche[1]] != 0 and\
            echiquier[clic[0]][clic[1]-1] == 0 and echiquier[clic[0]][clic[1]-2] == 0 and\
            echiquier[roi_gauche[0]][roi_gauche[1]][0] == "6" and\
-           echiquier[roi_gauche[0]][roi_gauche[1]][2] == "0":
+           echiquier[roi_gauche[0]][roi_gauche[1]][2] == "0"\
+           and cheque == []:
             tab.append(roi_gauche)
             roque += [roi_gauche, (clic[0], clic[1]-1), clic, (clic[0],clic[1]-2)]
         
@@ -340,7 +342,8 @@ def valide(clic: tuple, tab: list) -> list:
            echiquier[clic[0]][clic[1]-1] == 0 and echiquier[clic[0]][clic[1]-2] == 0 and\
            echiquier[clic[0]][clic[1]-3] == 0 and\
            echiquier[tour_gauche[0]][tour_gauche[1]][0] == "3" and\
-           echiquier[tour_gauche[0]][tour_gauche[1]][2] == "0":
+           echiquier[tour_gauche[0]][tour_gauche[1]][2] == "0"\
+           and cheque == []:
             tab.append(tour_gauche)
             roque += [clic, (clic[0],clic[1]-2), tour_gauche, (clic[0],clic[1]-1)]
             
@@ -350,7 +353,8 @@ def valide(clic: tuple, tab: list) -> list:
            and case[2] == "0" and\
            echiquier[clic[0]][clic[1]+1] == 0 and echiquier[clic[0]][clic[1]+2] == 0 and\
            echiquier[tour_droite[0]][tour_droite[1]][0] == "3" and\
-           echiquier[tour_droite[0]][tour_droite[1]][2] == "0":
+           echiquier[tour_droite[0]][tour_droite[1]][2] == "0"\
+           and cheque == []:
             tab.append(tour_droite)
             roque += [clic, (clic[0],clic[1]+2), tour_droite, (clic[0],clic[1]+1)]        
         
