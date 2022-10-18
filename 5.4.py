@@ -557,7 +557,7 @@ def cheque_test(tab: list) -> list:
             if (piece != 0):
                 couleur_piece = piece[1]
                 
-                test_piece = valide((i,j), echiquier)
+                test_piece = valide((i,j), tab)
                 
                 for test in test_piece:
                     if echiquier[test[0]][test[1]] != 0\
@@ -576,10 +576,6 @@ def update():
         echiquier, jeu = remplir_chiquier_initiallement(echiquier, jeu)
         
     elif commencer == 1:
-        
-        cheque = []
-        if jeu == "echecs":
-            cheque = cheque_test(cheque)
         
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
             #Ici le joueur selectionne une case
@@ -691,6 +687,10 @@ def update():
                     case_gauche = ""
                     tab_case_droite = []
                     compteur_mouv += 1
+                    
+                    cheque = []
+                    if jeu == "echecs":
+                        cheque = cheque_test(cheque)
                     
         for i in range(8):
             for j in range(8):
