@@ -784,7 +784,7 @@ def draw():
             pyxel.blt(20, 32, 0, 0, 64, 98, 16, 11) # Rose gagne
         if vainqueur == "Bleu":
             pyxel.blt(20, 32, 0, 0, 80, 98, 16, 11) # Bleu gagne
-        pyxel.text(46, 80, f"En {compteur_mouv//2 + 1} rounds", 0)
+        pyxel.text(46, 80, f"En {compteur_mouv} mouvements", 0)
         pyxel.text(40, 88, "R pour rejouer", 0)
     
     elif commencer == 3: #Ecran de promotion
