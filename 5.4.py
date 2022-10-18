@@ -134,13 +134,15 @@ def dessiner_piece(tab):
                     pyxel.blt(j * 16, i * 16, 0, 112, ligne_couleur, 16, 16, 11)
                     
     for case_cheque in cheque: #On dessine l'avertissement de couleur opposé à la pièce
-        couleur = echiquier[case_cheque[0]][case_cheque[1]][1]
-        if couleur == "b":
-            ligne_couleur = 0
-                    
-        elif couleur == "r":
-            ligne_couleur = 16
-        pyxel.blt(case_cheque[1]*16 +7, case_cheque[0]*16 +7, 0, 128, ligne_couleur, 9, 9, 11)
+        piece = echiquier[case_cheque[0]][case_cheque[1]]
+        if piece != 0:
+            couleur = echiquier[case_cheque[0]][case_cheque[1]][1]
+            if couleur == "b":
+                ligne_couleur = 0
+                        
+            elif couleur == "r":
+                ligne_couleur = 16
+            pyxel.blt(case_cheque[1]*16 +7, case_cheque[0]*16 +7, 0, 128, ligne_couleur, 9, 9, 11)
                     
                     
 def clic_case():
@@ -575,8 +577,9 @@ def update():
         
     elif commencer == 1:
         
-        cheque = []
-        cheque = cheque_test(cheque)
+        if jeu == "echecs":
+            cheque = []
+            cheque = cheque_test(cheque)
         
         if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
             #Ici le joueur selectionne une case
